@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: d70b78bc0002baa4aa68c952124fb1dc
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Armature.001
+    100004: //RootNode
+    100006: Bone
+    100008: Bone_end
+    100010: Cube.000
+    100012: Cube.004
+    100014: Cube.005
+    100016: ear.l
+    100018: ear.l_end
+    100020: ear.r
+    100022: ear.r_end
+    100024: lowerarm.l
+    100026: lowerarm.l_end
+    100028: lowerarm.r
+    100030: lowerarm.r_end
+    100032: lowerleg.l
+    100034: lowerleg.l_end
+    100036: lowerleg.r
+    100038: lowerleg.r_end
+    100040: middleleg.l
+    100042: middleleg.r
+    100044: neck
+    100046: neck.001
+    100048: neck.002
+    100050: root
+    100052: upperarm.l
+    100054: upperarm.r
+    100056: upperleg.l
+    100058: upperleg.r
+    400000: Armature
+    400002: Armature.001
+    400004: //RootNode
+    400006: Bone
+    400008: Bone_end
+    400010: Cube.000
+    400012: Cube.004
+    400014: Cube.005
+    400016: ear.l
+    400018: ear.l_end
+    400020: ear.r
+    400022: ear.r_end
+    400024: lowerarm.l
+    400026: lowerarm.l_end
+    400028: lowerarm.r
+    400030: lowerarm.r_end
+    400032: lowerleg.l
+    400034: lowerleg.l_end
+    400036: lowerleg.r
+    400038: lowerleg.r_end
+    400040: middleleg.l
+    400042: middleleg.r
+    400044: neck
+    400046: neck.001
+    400048: neck.002
+    400050: root
+    400052: upperarm.l
+    400054: upperarm.r
+    400056: upperleg.l
+    400058: upperleg.r
+    2100000: Material.018
+    2100002: Material.017
+    2100004: Material.016
+    4300000: Cube.000
+    4300002: Cube.005
+    4300004: Cube.004
+    7400000: mixamo.com
+    9500000: //RootNode
+    13700000: Cube.000
+    13700002: Cube.004
+    13700004: Cube.005
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
