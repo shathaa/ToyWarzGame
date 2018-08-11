@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerKeyboardMovements : MonoBehaviour {
 
 
-    //protected float moveSpeed = 0;
+    protected float moveSpeed = 0;
     Animator anim; 
 
     void Start()
@@ -17,8 +17,8 @@ public class PlayerKeyboardMovements : MonoBehaviour {
     void Update()
     {
 
-        /*transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
-        moveSpeed = 2;*/
+        transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+        moveSpeed = 2;
 
         //if (Input.GetButtonDown(""))
         //{

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AllyAI : MonoBehaviour
 {
@@ -10,12 +11,16 @@ public class AllyAI : MonoBehaviour
     public float miniDistance = 1.9f;
     public Transform myTrans;
     static Animator ani;
-    static UnityEngine.AI.NavMeshAgent nav;
+    NavMeshAgent nav;
     private Vector3 direction;
     private float angle;
     private Vector3 angelTeddyCurrPos;
     private bool isMoving;
+    private bool isEnemyMoving;
     public GameObject bomb;
+    public Transform Duck;
+    public Transform Cat;
+    public Transform EBear;
 
     private void Start()
     {
@@ -23,20 +28,23 @@ public class AllyAI : MonoBehaviour
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         angelTeddyCurrPos = GameObject.FindWithTag("Player").transform.position;
         isMoving = true;
-        allowedDistance = 20f;
+        isEnemyMoving = true;
+        //allowedDistance = 20f;
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-            bomb.SetActive(false);
+        nav.SetDestination(Duck.transform.position);
+        nav.SetDestination(Cat.transform.position);
+        nav.SetDestination(EBear.transform.position);
+        bomb.SetActive(false);
         
         //distanceCal(target);
         if (isMoving)
             playerMoved();
-        else
+        else if(isEnemyMoving)
            distanceCal();
     }
 
@@ -45,18 +53,17 @@ public class AllyAI : MonoBehaviour
     {
 
         
-        if (GameObject.FindWithTag("Cat") && GameObject.FindWithTag("Cat") != null)
+        if (Cat != null)
         {
-            nav.SetDestination(GameObject.FindWithTag("Cat").transform.position);
-            direction = GameObject.FindWithTag("Cat").transform.position - this.transform.position;
+            nav.SetDestination(Cat.transform.position);
+            direction = Cat.transform.position - this.transform.position;
             angle = Vector3.Angle(direction, this.transform.forward);
-            targetDistance = Vector3.Distance(GameObject.FindWithTag("Cat").transform.position, myTrans.transform.position);
+            targetDistance = Vector3.Distance(Cat.transform.position, myTrans.transform.position);
 
             direction.y = 0;
 
 
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
-                Quaternion.LookRotation(direction), 0.1f);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
 
             if (targetDistance <= allowedDistance && targetDistance > miniDistance && angle < 90)
             {
@@ -76,20 +83,21 @@ public class AllyAI : MonoBehaviour
                     ani.SetBool("isAttackingSp", true);
                     nav.speed = 0f;
                 }
+                else if (targetDistance <= miniDistance)
+                {
+
+
+                    ani.SetBool("isIdle", false);
+                    ani.SetBool("isWalking", false);
+                    ani.SetBool("isAttackingSp", false);
+                    ani.SetBool("isAttacking", true);
+
+                    transform.Translate(Vector3.forward * nav.speed * Time.deltaTime);
+                    nav.speed = 0f;
+                }
             }
              
-            else if (targetDistance <= miniDistance)
-            {
-
-
-                ani.SetBool("isIdle", false);
-                ani.SetBool("isWalking", false);
-                ani.SetBool("isAttackingSp", false);
-                ani.SetBool("isAttacking", true);
-
-                transform.Translate(Vector3.forward * nav.speed * Time.deltaTime);
-                nav.speed = 0f;
-            }
+            
             else
             {
                 nav.speed = 0f;
@@ -99,12 +107,12 @@ public class AllyAI : MonoBehaviour
                 ani.SetBool("isAttacking", false);
             }
         }
-        else if (GameObject.FindWithTag("Duck") && GameObject.FindWithTag("Duck") != null)
+        else if (Duck != null)
         {
-            nav.SetDestination(GameObject.FindWithTag("Duck").transform.position);
-            direction = GameObject.FindWithTag("Duck").transform.position - this.transform.position;
+            nav.SetDestination(Duck.transform.position);
+            direction = Duck.transform.position - this.transform.position;
             angle = Vector3.Angle(direction, this.transform.forward);
-            targetDistance = Vector3.Distance(GameObject.FindWithTag("Duck").transform.position, myTrans.transform.position);
+            targetDistance = Vector3.Distance(Duck.transform.position, myTrans.transform.position);
 
             direction.y = 0;
 
@@ -130,18 +138,19 @@ public class AllyAI : MonoBehaviour
                     ani.SetBool("isAttackingSp", true);
                     nav.speed = 0f;
                 }
+                else if (targetDistance <= miniDistance)
+                {
+
+
+                    ani.SetBool("isIdle", false);
+                    ani.SetBool("isWalking", false);
+                    ani.SetBool("isAttacking", true);
+
+                    transform.Translate(Vector3.forward * nav.speed * Time.deltaTime);
+                    nav.speed = 0f;
+                }
             }
-            else if (targetDistance <= miniDistance)
-            {
-
-
-                ani.SetBool("isIdle", false);
-                ani.SetBool("isWalking", false);
-                ani.SetBool("isAttacking", true);
-
-                transform.Translate(Vector3.forward * nav.speed * Time.deltaTime);
-                nav.speed = 0f;
-            }
+            
             else
             {
                 nav.speed = 0f;
@@ -150,12 +159,12 @@ public class AllyAI : MonoBehaviour
                 ani.SetBool("isAttacking", false);
             }
         }
-        else if (GameObject.FindWithTag("Bear") && GameObject.FindWithTag("Bear") != null)
+        else if (EBear != null)
         {
-            nav.SetDestination(GameObject.FindWithTag("Bear").transform.position);
-            direction = GameObject.FindWithTag("Bear").transform.position - this.transform.position;
+            nav.SetDestination(EBear.transform.position);
+            direction = EBear.transform.position - this.transform.position;
             angle = Vector3.Angle(direction, this.transform.forward);
-            targetDistance = Vector3.Distance(GameObject.FindWithTag("Bear").transform.position, myTrans.transform.position);
+            targetDistance = Vector3.Distance(EBear.transform.position, myTrans.transform.position);
 
             direction.y = 0;
 
@@ -181,18 +190,19 @@ public class AllyAI : MonoBehaviour
                     ani.SetBool("isAttackingSp", true);
                     nav.speed = 0f;
                 }
+                else if (targetDistance <= miniDistance)
+                {
+
+
+                    ani.SetBool("isIdle", false);
+                    ani.SetBool("isWalking", false);
+                    ani.SetBool("isAttacking", true);
+
+                    transform.Translate(Vector3.forward * nav.speed * Time.deltaTime);
+                    nav.speed = 0f;
+                }
             }
-            else if (targetDistance <= miniDistance)
-            {
-
-
-                ani.SetBool("isIdle", false);
-                ani.SetBool("isWalking", false);
-                ani.SetBool("isAttacking", true);
-
-                transform.Translate(Vector3.forward * nav.speed * Time.deltaTime);
-                nav.speed = 0f;
-            }
+            
             else
             {
                 nav.speed = 0f;
@@ -223,6 +233,19 @@ public class AllyAI : MonoBehaviour
             ani.SetBool("isIdle", false);
             ani.SetBool("isWalking", true);
             isMoving = false;
+        }
+    }
+
+    private void EnemyMoved()
+    {
+        if (angelTeddyCurrPos.x < GameObject.FindWithTag("Duck").transform.position.x
+           || angelTeddyCurrPos.x > GameObject.FindWithTag("Duck").transform.position.x
+           || angelTeddyCurrPos.z < GameObject.FindWithTag("Duck").transform.position.z
+           || angelTeddyCurrPos.z > GameObject.FindWithTag("Duck").transform.position.z)
+        {
+            ani.SetBool("isIdle", true);
+            ani.SetBool("isWalking", false);
+            isEnemyMoving = false;
         }
     }
 }

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CatEnemyAI : MonoBehaviour {
+
+    public float lookRadius = 10f; 
 	private Animator anim; 
 	private UnityEngine.AI.NavMeshAgent nav ; 
 	private bool aliveTarget = true ;
@@ -57,5 +60,9 @@ public class CatEnemyAI : MonoBehaviour {
 
 	}//end Update ()
 
-
+     void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
 }
